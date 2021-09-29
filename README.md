@@ -40,8 +40,6 @@ Once the queries have been sent to the virtual machines, the next step is to ret
 $VMArray = get-SQLVMIaaSExtensionData $VMArray
 ````
 
-![Retrieve VM Data](https://github.com/timchapman/sql-iaas-extension-helpers/blob/main/media/1-RetreiveVMData.jpg)
-
 ### E.  Report on Virtual Machine Status
 The last step of the process is to run a report off of the status of the Virtual Machines.  This call will return:
 - Total Virtual Machine Count: how many VMs were queried
@@ -52,5 +50,3 @@ The last step of the process is to run a report off of the status of the Virtual
 ````PowerShell
 report-SQLVMIaaSExtensionData $VMArray
 ````
-
-![VM Data Results.](media/2-VMDataResults.JPG 'VM Data Results')
