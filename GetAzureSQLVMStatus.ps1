@@ -316,7 +316,6 @@ Written by:  Tim Chapman, Microsoft  09/2021
 } 
 
 <#
-Login-AzAccount
 $ScriptPath = "c:\temp\GetServiceInfo.txt" 
 create-SQLVMIaaSServiceScript -ServiceScriptPath $ScriptPath
 $VMArray = send-SQLVMIaaSExtensionData -ResourceGroupName "timiaasext" -ServiceScriptPath $ScriptPath
