@@ -1,1 +1,1 @@
-# sql-iaas-ext-helpers
+# How to find IaaS VMs with SQL Server Installed
