@@ -62,7 +62,6 @@ $out|ConvertTo-Json
     Set-Content -Path $ServiceScriptPath -Value $ServiceScript
 }
 
-
 function send-SQLVMIaaSExtensionData
 {
 <#
@@ -127,7 +126,7 @@ Produces an array of dictionary objects that represent the VMs that have been se
         {
             if(-not(Get-AzResourceGroup -Name $ResourceGroupName))
             {
-                Write-Error "Resource Group does not exist."
+                Write-Error "Resource Group does not exist in the current Azure subscription."
                 return
             }
             $GetVMParams.ResourceGroupName = $ResourceGroupName
@@ -201,7 +200,7 @@ Produces an array of dictionary objects that represent the VMs that have been se
     }
     return $VMArray
 }
-
+ 
 function get-SQLVMIaaSExtensionData
 {
 <#
@@ -261,6 +260,7 @@ Produces an updated array of dictionary objects with job retreival status.
     return $VMArray
 }
 
+
 function report-SQLVMIaaSExtensionData
 {
 <#
@@ -313,14 +313,13 @@ Written by:  Tim Chapman, Microsoft  09/2021
         "VMs with SQL Server installed: $SQLInstalledCount"
         "VMs with the SQL Iaas Extension: $IaaSExtInstalledCount"
         "VMs with Named Instances of SQL: $NamedInstanceCount"
-}
+} 
 
 <#
+Login-AzAccount
 $ScriptPath = "c:\temp\GetServiceInfo.txt" 
 create-SQLVMIaaSServiceScript -ServiceScriptPath $ScriptPath
 $VMArray = send-SQLVMIaaSExtensionData -ResourceGroupName "timiaasext" -ServiceScriptPath $ScriptPath
 $VMArray = get-SQLVMIaaSExtensionData $VMArray
 report-SQLVMIaaSExtensionData $VMArray
 #>
-
-
